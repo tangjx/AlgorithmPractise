@@ -1,15 +1,15 @@
 package cn.nowdo.algorithm.books.interview.chapter1;
 
+import java.util.LinkedList;
 import java.util.Queue;
-import java.util.concurrent.LinkedBlockingDeque;
 
 /**
  * @Description
  * @Date 2020/9/23 18:30
  */
 public class DogCatQueue {
-    private Queue<PetNode> dogQueue = new LinkdedList<>();
-    private Queue<PetNode> catQueue;
+    private Queue<PetNode> dogQueue = new LinkedList<>();
+    private Queue<PetNode> catQueue = new LinkedList<>();
     private int count = 1;
 
     public void add(Pet pet) {
@@ -18,26 +18,42 @@ public class DogCatQueue {
             dogQueue.add(petNode);
         } else if(pet.getType().equals("cat")) {
             PetNode petNode = new PetNode(pet, count ++);
-            dogQueue.add(petNode);
+            catQueue.add(petNode);
         } else {
             throw new RuntimeException("err, not dog or cat");
         }
     }
 
     public Pet pollAll() {
-        if(dogQueue.peek().getCount() < catQueue.peek().getCount()) {
+        if(!dogQueue.isEmpty() && !catQueue.isEmpty()) {
+            if(dogQueue.peek().getCount() < catQueue.peek().getCount()) {
+                return dogQueue.poll().getPet();
+            } else {
+                return catQueue.poll().getPet();
+            }
+        } else if(!dogQueue.isEmpty()) {
             return dogQueue.poll().getPet();
-        } else {
+        } else if (!catQueue.isEmpty()) {
             return catQueue.poll().getPet();
+        } else {
+            throw new RuntimeException("err, queue is empty");
         }
     };
 
     public Pet.Dog pollDog() {
-        return (Pet.Dog) dogQueue.poll().getPet();
+        if(!isDogEmpty()) {
+            return (Pet.Dog) dogQueue.poll().getPet();
+        } else {
+            throw new RuntimeException("err, dog queue is empty");
+        }
     }
 
     public Pet.Cat pollCat() {
-        return (Pet.Cat) catQueue.poll().getPet();
+        if(!isCatEmpty()) {
+            return (Pet.Cat) catQueue.poll().getPet();
+        } else {
+            throw new RuntimeException("err, cat queue is empty");
+        }
     }
 
     public boolean isEmpty() {
@@ -61,7 +77,8 @@ public class DogCatQueue {
             dogCatQueue.add(cat);
         }
         while (!dogCatQueue.isEmpty()) {
-            System.out.print("poll all :" + dogCatQueue.pollAll().getType());
+            System.out.println("poll all :" + dogCatQueue.pollAll().getType());
+
         }
     }
 }
