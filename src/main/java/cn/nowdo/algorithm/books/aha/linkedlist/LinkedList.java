@@ -1,4 +1,4 @@
-package cn.nowdo.algorithm.linkedlist;
+package cn.nowdo.algorithm.books.aha.linkedlist;
 
 /**
  * @Description

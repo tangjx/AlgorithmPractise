@@ -1,4 +1,4 @@
-package cn.nowdo.algorithm.sort.bubble;
+package cn.nowdo.algorithm.books.aha.sort.bubble;
 
 import java.util.Scanner;
 

@@ -1,4 +1,4 @@
-package cn.nowdo.algorithm.stack;
+package cn.nowdo.algorithm.books.aha.stack;
 
 import java.util.Scanner;
 

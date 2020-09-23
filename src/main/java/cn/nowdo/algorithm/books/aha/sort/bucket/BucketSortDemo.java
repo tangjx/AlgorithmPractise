@@ -1,4 +1,4 @@
-package cn.nowdo.algorithm.sort.bucket;
+package cn.nowdo.algorithm.books.aha.sort.bucket;
 
 import java.util.Scanner;
 
