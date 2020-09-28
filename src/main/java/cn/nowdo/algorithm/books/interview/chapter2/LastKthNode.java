@@ -38,7 +38,6 @@ public class LastKthNode {
             return head;
         } else if (size == k) {
             head = head.next;
-            return head;
         } else {
             index = head;
             int i = size - k;
@@ -91,7 +90,7 @@ public class LastKthNode {
             index1 = newNode;
         }
         LastKthNode lastKthNode = new LastKthNode();
-        head1 = lastKthNode.removeLastKthNode(head1, 6);
+        head1 = lastKthNode.removeLastKthNode(head1, -1);
         index1 = head1;
         while (index1 != null) {
             System.out.println(index1.value);
