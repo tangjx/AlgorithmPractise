@@ -2,6 +2,9 @@ package cn.nowdo.algorithm.books.interview.chapter2;
 
 /**
  * @Description
+ *
+ * 【题目】分别实现两个函数，一个可以删除单链表中倒数第K个节点，另一个可以删除双链表中倒数第K个节点。
+ * 【要求】如果链表长度为N，时间复杂度达到O（N），额外空间复杂度达到O（1）。
  * @Date 2020/9/28 16:12
  */
 public class LastKthNode {
